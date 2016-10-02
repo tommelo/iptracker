@@ -42,7 +42,6 @@ LONG_OPTIONS = ["help", "version", "target="]
 
 DB_FILE  = "GeoLiteCity.dat"
 target   = None
-output   = "text"
 
 """
 
@@ -86,19 +85,11 @@ def parseargs(argv):
                global target
                target = arg
 
-            elif opt in ("-o", "--ouput"):
-               global output
-               output = arg
-
             if target is None or not target:
                print("[!] No target given")
                print("[!] Use --help for help usage")
                sys.exit(0)
 
-            if not output in ("text", "json", "xml"):
-               print("[!] Invalid output type")
-               print("[!] Use --help for help usage")
-               sys.exit(0)
     except getopt.GetoptError as error:
         print("\n")
         print(error)
